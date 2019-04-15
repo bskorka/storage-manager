@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj część</title>
+</head>
+<body>
+<form action="#" th:action="@{/parts/}" th:object="${part}" method="post">
+    <label for="name">Nazwa</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+<!--    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+
+    <label for="state">Stan</label>
+    <input type="text" th:field="*{state}" id="state" placeholder="State">
+
+    <label for="type">Typ</label>
+    <input type="text" th:field="*{type}" id="type" placeholder="Type">
+
+    <label for="make">Marka</label>
+    <input type="text" th:field="*{make}" id="make" placeholder="Make">
+
+    <label for="model">Model</label>
+    <input type="text" th:field="*{model}" id="model" placeholder="Model">
+
+    <label for="quantity">Ilość</label>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="Quantity">
+
+    <label for="pricePerElement">Cena za element</label>
+    <input type="text" th:field="*{pricePerElement}" id="pricePerElement" placeholder="pricePerElement">
+
+    <label for="storageSpace">Miejsce przechowywania</label>
+    <input type="text" th:field="*{storageSpace}" id="storageSpace" placeholder="storageSpace">
+
+    <label for="profitMargin">Marża</label>
+    <input type="text" th:field="*{profitMargin}" id="profitMargin" placeholder="profitMargin">
+
+    <label for="priceWithProfitMargin">Cena z marżą</label>
+    <input type="text" th:field="*{priceWithProfitMargin}" id="priceWithProfitMargin" placeholder="priceWithProfitMargin">
+
+
+    <input type="submit" value="Dodaj część">
+</form>
+
+</body>
+</html>

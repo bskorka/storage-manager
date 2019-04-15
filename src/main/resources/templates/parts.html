@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Części</title>
+</head>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazwa</th>
+        <th>Stan</th>
+        <th>Typ</th>
+        <th>Model</th>
+        <th>Marka</th>
+        <th>Ilość</th>
+        <th>Cena za element</th>
+        <th>Miejsce przechowywania</th>
+        <th>Marża</th>
+        <th>Cena z marżą</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${parts.empty}">
+        <td colspan="11">Brak zapisanych części</td>
+    </tr>
+    <tr th:each="part : ${parts}">
+        <td><span th:text="${part.name}"> Title </span></td>
+        <td><span th:text="${part.partId}"> Author </span></td>
+    </tr>
+    </tbody>
+</table>
+
+<button th:name="addBtn" th:text="Dodaj "/>
+
+</html>

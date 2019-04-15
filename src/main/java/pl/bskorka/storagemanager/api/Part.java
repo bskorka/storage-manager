@@ -26,7 +26,7 @@ public class Part {
 
     private String model;
 
-    private Integer numerOfElements;
+    private Integer quantity;
 
     private Double pricePerElement;
 

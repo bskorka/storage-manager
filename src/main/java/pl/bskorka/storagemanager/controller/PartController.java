@@ -7,8 +7,8 @@ import pl.bskorka.storagemanager.service.PartServiceImpl;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/parts")
+//@RestController
+//@RequestMapping("/parts")
 public class PartController {
 
     private PartServiceImpl service;
@@ -17,26 +17,26 @@ public class PartController {
     public PartController(PartServiceImpl service) {
         this.service = service;
     }
-
-    @GetMapping
-    public List<Part> getParts() {
-        return service.selectAllParts();
-    }
-
-    @PostMapping
-    public Part insertPart(@RequestBody Part part) {
-        return service.insert(part);
-    }
-
-    @PutMapping
-    public Part updatePart(@RequestBody Part part) {
-        return service.update(part);
-    }
-
-    @DeleteMapping
-    public void deletePart(@RequestBody Part part) {
-        service.delete(part);
-    }
+//
+//    @GetMapping
+//    public List<Part> getParts() {
+//        return service.selectAllParts();
+//    }
+//
+//    @PostMapping
+//    public Part insertPart(@RequestBody Part part) {
+//        return service.insert(part);
+//    }
+//
+//    @PutMapping
+//    public Part updatePart(@RequestBody Part part) {
+//        return service.update(part);
+//    }
+//
+//    @DeleteMapping
+//    public void deletePart(@RequestBody Part part) {
+//        service.delete(part);
+//    }
 
 
 }
