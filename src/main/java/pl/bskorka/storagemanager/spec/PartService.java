@@ -8,10 +8,8 @@ public interface PartService {
 
     List<Part> selectAllParts();
 
-    Part insert(Part part);
+    Part save(Part part);
 
-    Part update(Part part);
-
-    void delete(Part part);
+    void deleteById(Integer partId);
 
 }

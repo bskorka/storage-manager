@@ -1,8 +1,12 @@
 package pl.bskorka.storagemanager.api;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import pl.bskorka.storagemanager.api.enums.State;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -14,7 +18,9 @@ public class Part {
 
     private String name;
 
-    private String type; // enum
+    private State state;
+
+    private String type;
 
     private String make;
 
@@ -29,5 +35,11 @@ public class Part {
     private Double profitMargin;
 
     private Double priceWithProfitMargin;
+
+    @CreationTimestamp
+    private Date createdAt;
+
+    @UpdateTimestamp
+    private Date modifiedAt;
 
 }

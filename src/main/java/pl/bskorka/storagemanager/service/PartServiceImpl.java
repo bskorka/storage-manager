@@ -24,18 +24,13 @@ public class PartServiceImpl implements PartService {
     }
 
     @Override
-    public Part insert(Part part) {
+    public Part save(Part part) {
         return dao.save(part);
     }
 
     @Override
-    public Part update(Part part) {
-        return dao.save(part);
-    }
-
-    @Override
-    public void delete(Part part) {
-        dao.delete(part);
+    public void deleteById(Integer partId) {
+        dao.deleteById(partId);
     }
 
 
