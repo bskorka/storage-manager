@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Części</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nazwa</th>
-        <th>Stan</th>
-        <th>Typ</th>
-        <th>Model</th>
-        <th>Marka</th>
-        <th>Ilość</th>
-        <th>Cena za element</th>
-        <th>Miejsce przechowywania</th>
-        <th>Marża</th>
-        <th>Cena z marżą</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${parts.empty}">
-        <td colspan="11">Brak zapisanych części</td>
-    </tr>
-    <tr th:each="part : ${parts}">
-        <td><span th:text="${part.name}"> Title </span></td>
-        <td><span th:text="${part.partId}"> Author </span></td>
-    </tr>
-    </tbody>
-</table>
-
-<button th:name="addBtn" th:text="Dodaj "/>
-
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Stan</th>
+            <th>Typ</th>
+            <th>Model</th>
+            <th>Marka</th>
+            <th>Ilość</th>
+            <th>Cena za element</th>
+            <th>Miejsce przechowywania</th>
+            <th>Marża</th>
+            <th>Cena z marżą</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${parts.empty}">
+            <td colspan="11">Brak zapisanych części</td>
+        </tr>
+        <tr th:each="part : ${parts}">
+            <td><span th:text="${part.partId}"> ID </span></td>
+            <td><span th:text="${part.name}"> Nazwa </span></td>
+            <td><span th:text="${part.state}"> Stan </span></td>
+            <td><span th:text="${part.type}"> Typ </span></td>
+            <td><span th:text="${part.make}"> Marka </span></td>
+            <td><span th:text="${part.model}"> Model </span></td>
+            <td><span th:text="${part.quantity}"> Ilość </span></td>
+            <td><span th:text="${part.pricePerElement}"> Cena za sztukę </span></td>
+            <td><span th:text="${part.storageSpace}"> Miejsce przechowania </span></td>
+            <td><span th:text="${part.profitMargin}"> Marża </span></td>
+            <td><span th:text="${part.priceWithProfitMargin}"> Cena z marżą </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-primary" role="button" th:href="@{/parts/add-part}">Dodaj</a>
+        <a class="btn btn-light" role="button" th:href="@{/}">Wróć</a>
+    </p>
+</div>
 </html>
