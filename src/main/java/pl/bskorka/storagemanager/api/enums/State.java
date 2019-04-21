@@ -16,4 +16,17 @@ public enum State {
         return this.state;
     }
 
+    public State parse(String value) {
+        for (State state : State.values()) {
+            if (state.getValue().equals(value))
+                return state;
+        }
+
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return this.getValue();
+    }
 }
