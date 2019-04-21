@@ -8,6 +8,13 @@
     <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/parts/all}">Części (telefony)</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodaj część</li>
+    </ol>
+</nav>
 <div class="container">
     <form action="#" th:action="@{/parts/}" th:object="${part}" method="post">
         <label for="name">Nazwa</label>
