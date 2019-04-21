@@ -17,12 +17,20 @@
 </nav>
 <div class="container">
     <form action="#" th:action="@{/parts/}" th:object="${part}" method="post">
-        <label for="name">Nazwa</label>
-        <input type="text" th:field="*{name}" id="name" placeholder="Name">
-        </br>
-        <label for="state">Stan</label>
-        <input type="text" th:field="*{state}" id="state" placeholder="State">
-        </br>
+        <div class="form-group row">
+            <label for="name" class="col-sm-1 col-form-label">Nazwa</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" th:field="*{name}" id="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="state" class="col-sm-1 col-form-label">Stan</label>
+            <div class="col-sm-4">
+                <select th:field="*{state}" class="form-control" id="state">
+                    <option th:each="state : ${stateComboValues.entrySet()}" th:value="${state.key}" th:text="${state.value}"></option>
+                </select>
+            </div>
+        </div>
         <label for="type">Typ</label>
         <input type="text" th:field="*{type}" id="type" placeholder="Type">
         </br>
