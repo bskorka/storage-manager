@@ -26,14 +26,21 @@
         <div class="form-group row">
             <label for="state" class="col-sm-1 col-form-label">Stan</label>
             <div class="col-sm-4">
-                <select th:field="*{state}" class="form-control" id="state">
-                    <option th:each="state : ${stateComboValues.entrySet()}" th:value="${state.key}" th:text="${state.value}"></option>
+                <select th:field="*{state}" title="Wybierz stan" class="form-control" id="state">
+                    <option th:each="state : ${stateComboValues.entrySet()}" th:value="${state.key}"
+                            th:text="${state.value}"></option>
                 </select>
             </div>
         </div>
-        <label for="type">Typ</label>
-        <input type="text" th:field="*{type}" id="type" placeholder="Type">
-        </br>
+        <div class="form-group row">
+            <label for="type" class="col-sm-1 col-form-label">Typ</label>
+            <div class="col-sm-4">
+                <select th:field="*{type}" title="Wybierz typ części" class="form-control" id="type">
+                    <option th:each="type : ${typeComboValues.entrySet()}" th:value="${type.key}"
+                            th:text="${type.value}"></option>
+                </select>
+            </div>
+        </div>
         <label for="make">Marka</label>
         <input type="text" th:field="*{make}" id="make" placeholder="Make">
         </br>

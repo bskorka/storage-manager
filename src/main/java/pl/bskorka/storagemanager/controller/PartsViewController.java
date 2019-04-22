@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.bskorka.storagemanager.api.Part;
 import pl.bskorka.storagemanager.api.enums.State;
+import pl.bskorka.storagemanager.api.enums.Type;
 import pl.bskorka.storagemanager.spec.PartService;
 
 import javax.validation.Valid;
@@ -34,6 +35,7 @@ public class PartsViewController {
     @GetMapping("/add-part")
     public String addPart(Part part, Model model) {
         model.addAttribute("stateComboValues", State.getComboTextForEnum());
+        model.addAttribute("typeComboValues", Type.getComboTextForEnum());
 
         return "add-part";
     }
