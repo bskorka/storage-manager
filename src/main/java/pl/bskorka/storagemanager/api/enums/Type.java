@@ -4,15 +4,22 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public enum Type {
-    LCD,
+
     BATTERY,
-    DIGITZER,
-    HOUSING,
+    BUTTONS,
     CABLE,
-    BUTTON,
-    SPEAKER,
     CAMERA,
-    RUBBER_PLUGS;
+    CHARGER,
+    DIGITZER,
+    FLAP,
+    FRAME,
+    LCD,
+    MODULE,
+    GLUE_SEAL,
+    HOUSING,
+    RUBBER_PLUG,
+    SPEAKER,
+    USB;
 
     public static Map getComboTextForEnum() {
         Map<Type, String> comboTextByState = new TreeMap<>();
@@ -20,11 +27,17 @@ public enum Type {
         comboTextByState.put(BATTERY, "Bateria");
         comboTextByState.put(DIGITZER, "Digitzer (dotyk)");
         comboTextByState.put(SPEAKER, "Głośnik");
-        comboTextByState.put(RUBBER_PLUGS, "Gumowa uszczelka, zaślepka");
         comboTextByState.put(CABLE, "Kabel");
+        comboTextByState.put(GLUE_SEAL, "Klej, uszczelka");
+        comboTextByState.put(FLAP, "Klapka");
         comboTextByState.put(LCD, "LCD");
+        comboTextByState.put(CHARGER, "Ładowarka");
+        comboTextByState.put(MODULE, "Moduł");
         comboTextByState.put(HOUSING, "Obudowa");
-        comboTextByState.put(BUTTON, "Przycisk");
+        comboTextByState.put(BUTTONS, "Przycisk");
+        comboTextByState.put(FRAME, "Ramka");
+        comboTextByState.put(USB, "USB");
+        comboTextByState.put(RUBBER_PLUG, "Zaślepka");
 
         return comboTextByState;
     }
