@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import pl.bskorka.storagemanager.api.enums.State;
+import pl.bskorka.storagemanager.api.enums.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class Part {
 
     private State state;
 
-    private String type;
+    private Type type;
 
     private String make;
 

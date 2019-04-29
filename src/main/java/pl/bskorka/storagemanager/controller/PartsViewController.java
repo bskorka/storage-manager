@@ -29,7 +29,7 @@ public class PartsViewController {
     public String listAll(Model model) {
         model.addAttribute("parts", service.selectAllParts());
 
-        return "parts";
+        return "parts/parts";
     }
 
     @GetMapping("/add-part")
@@ -37,18 +37,18 @@ public class PartsViewController {
         model.addAttribute("stateComboValues", State.getComboTextForEnum());
         model.addAttribute("typeComboValues", Type.getComboTextForEnum());
 
-        return "add-part";
+        return "parts/add-part";
     }
 
     @PostMapping("/")
-    public String addUser(@Valid Part user, BindingResult result, Model model) {
+    public String addPart(@Valid Part part, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "add-part";
+            return "parts/add-part";
         }
 
-        service.save(user);
+        service.save(part);
         model.addAttribute("parts", service.selectAllParts());
-        return "parts";
+        return "parts/parts";
     }
 
 }

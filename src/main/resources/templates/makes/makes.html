@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Marki</title>
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Marki</li>
+    </ol>
+</nav>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Kategoria</th>
+            <th>Nazwa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${makes.empty}">
+            <td colspan="11">Brak zapisanych marek</td>
+        </tr>
+        <tr th:each="make : ${makes}">
+            <td><span th:text="${make.makeId}"> ID </span></td>
+            <td><span th:text="${make.partCategory}"> Kategoria </span></td>
+            <td><span th:text="${make.name}"> Nazwa </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-primary" role="button" th:href="@{/makes/add-make}">Dodaj</a>
+        <a class="btn btn-light" role="button" th:href="@{/}">Wróć</a>
+    </p>
+</div>
+</html>

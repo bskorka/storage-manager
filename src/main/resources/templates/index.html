@@ -21,9 +21,23 @@
 </nav>
 <div class="container">
     <div class="jumbotron">
-        <p><h4>Telefony</h4></p>
-        <p><a class="btn btn-lg btn-primary" role="button" th:href="@{/parts/all}">Lista części</a></p>
-        <p><a class="btn btn-lg btn-primary" role="button" th:href="@{/repairs/all}">Naprawy</a></p>
+        <div class="row">
+            <div class="col-md-3">
+                <p><h4>Telefony</h4></p>
+                <p><a class="btn btn-lg btn-primary" role="button" th:href="@{/parts/all}">Lista części</a></p>
+                <p><a class="btn btn-lg btn-primary disabled" role="button" th:href="@{/repairs/all}">Naprawy</a></p>
+                <p><a class="btn btn-lg btn-primary disabled" role="button" th:href="@{/phones/models}">Modele</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><h4>Komputery</h4></p>
+                <p><a class="btn btn-lg btn-primary disabled" role="button" th:href="@{/parts/all}">Lista części</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><h4>Zarządzanie</h4></p>
+                <p><a class="btn btn-lg btn-primary" role="button" th:href="@{/makes/all}">Marki</a></p>
+                <p><a class="btn btn-lg btn-primary disabled" role="button" th:href="@{/clients/all}">Klienci</a></p>
+            </div>
+        </div>
     </div>
 </div> <!-- /container -->
 <!-- Bootstrap core JavaScript
