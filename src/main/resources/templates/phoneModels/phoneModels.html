@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Modele telefonów</title>
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Modele telefonów</li>
+    </ol>
+</nav>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Marka</th>
+            <th>Nazwa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${phoneModels.empty}">
+            <td colspan="11">Brak zapisanych modeli telefonów</td>
+        </tr>
+        <tr th:each="phoneModel : ${phoneModels}">
+            <td><span th:text="${phoneModel.phoneModelId}"> ID </span></td>
+            <td><span th:text="${phoneModel.make.name}"> Nazwa marki </span></td>
+            <td><span th:text="${phoneModel.name}"> Nazwa </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-primary" role="button" th:href="@{/phoneModels/add-phoneModel}">Dodaj</a>
+        <a class="btn btn-light" role="button" th:href="@{/}">Wróć</a>
+    </p>
+</div>
+</html>

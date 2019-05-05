@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Dodaj markę</title>
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/phoneModels/all}">Modele telefonów</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dodaj model telefonu</li>
+    </ol>
+</nav>
+<div class="container">
+    <form action="#" th:action="@{/phoneModels/}" th:object="${phoneModel}" method="post">
+        <div class="form-group row">
+            <label for="make" class="col-sm-1 col-form-label">Marka</label>
+            <div class="col-sm-4">
+                <select th:field="*{make}" title="Wybierz markę" class="form-control" id="make">
+                    <option th:each="phoneMake : ${phoneMakes}" th:value="${phoneMake.makeId}"
+                            th:text="${phoneMake.name}"></option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-1 col-form-label">Nazwa</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" th:field="*{name}" id="name">
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Dodaj model">
+        <a class="btn btn-light" role="button" th:href="@{/phoneModels/all}">Wróć</a>
+    </form>
+</div>
+</body>
+</html>

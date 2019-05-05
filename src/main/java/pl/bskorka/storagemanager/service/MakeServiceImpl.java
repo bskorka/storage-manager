@@ -2,6 +2,7 @@ package pl.bskorka.storagemanager.service;
 
 import org.springframework.stereotype.Service;
 import pl.bskorka.storagemanager.api.Make;
+import pl.bskorka.storagemanager.api.enums.PartCategory;
 import pl.bskorka.storagemanager.dao.MakeDao;
 import pl.bskorka.storagemanager.spec.MakeService;
 
@@ -25,4 +26,10 @@ public class MakeServiceImpl implements MakeService {
     public Make save(Make make) {
         return dao.save(make);
     }
+
+    @Override
+    public List<Make> selectMakesByPartCategory(PartCategory partCategory) {
+        return dao.findAllByPartCategoryEquals(partCategory);
+    }
+
 }
