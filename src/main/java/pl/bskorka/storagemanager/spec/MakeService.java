@@ -12,4 +12,6 @@ public interface MakeService {
     Make save(Make make);
 
     List<Make> selectMakesByPartCategory(PartCategory partCategory);
+
+    Make selectMakeByName(String makeName);
 }

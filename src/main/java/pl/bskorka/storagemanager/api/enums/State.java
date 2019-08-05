@@ -16,10 +16,10 @@ public enum State {
     }
 
     public static Map getComboTextForEnum() {
-        Map<State, String> comboTextByState = new TreeMap<>();
-        comboTextByState.put(NEW, "N - nowy");
-        comboTextByState.put(USED, "U - używany");
-        comboTextByState.put(REGENERATED, "R - regenerowany");
+        Map<String, String> comboTextByState = new TreeMap<>();
+        comboTextByState.put(NEW.name(), "N - nowy");
+        comboTextByState.put(USED.name(), "U - używany");
+        comboTextByState.put(REGENERATED.name(), "R - regenerowany");
 
         return comboTextByState;
     }

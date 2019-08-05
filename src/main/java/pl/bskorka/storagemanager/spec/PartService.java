@@ -8,6 +8,8 @@ public interface PartService {
 
     List<Part> selectAllParts();
 
+    Part selectPartById(Integer partId);
+
     Part save(Part part);
 
     void deleteById(Integer partId);

@@ -7,6 +7,11 @@
     <title>Dodaj część</title>
     <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
+<style>
+    option[default] {
+        display: none;
+    }
+</style>
 <body>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -41,32 +46,63 @@
                 </select>
             </div>
         </div>
-        <label for="make">Marka</label>
-        <input type="text" th:field="*{make}" id="make" placeholder="Make">
-        </br>
-        <label for="model">Model</label>
-        <input type="text" th:field="*{model}" id="model" placeholder="Model">
-        </br>
-        <label for="quantity">Ilość</label>
-        <input type="text" th:field="*{quantity}" id="quantity" placeholder="Quantity">
-        </br>
-        <label for="pricePerElement">Cena za element</label>
-        <input type="text" th:field="*{pricePerElement}" id="pricePerElement" placeholder="pricePerElement">
-        </br>
-        <label for="storageSpace">Miejsce przechowywania</label>
-        <input type="text" th:field="*{storageSpace}" id="storageSpace" placeholder="storageSpace">
-        </br>
-        <label for="profitMargin">Marża</label>
-        <input type="text" th:field="*{profitMargin}" id="profitMargin" placeholder="profitMargin">
-        </br>
-        <label for="priceWithProfitMargin">Cena z marżą</label>
-        <input type="text" th:field="*{priceWithProfitMargin}" id="priceWithProfitMargin"
-               placeholder="priceWithProfitMargin">
-        </br>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="make" class="col-sm-1 col-form-label">Marka</label>
+                <select th:field="*{make}" title="Wybierz markę" class="form-control" id="make" required>
+                    <option value="" default selected>Wybierz markę</option>
+                    <option th:each="phoneMake : ${phoneMakes}" th:value="${phoneMake.name}"
+                            th:text="${phoneMake.name}"></option>
+                </select>
+            </div>
 
+            <div class="col-sm-4">
+                <label for="model" class="col-sm-1 col-form-label">Model</label>
+                <select disabled th:field="*{model}" title="Wybierz model" class="form-control" id="model">
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="quantity" class="col-sm-1 col-form-label">Ilość</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" th:field="*{quantity}" id="quantity">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pricePerElement" class="col-sm-1 col-form-label">Cena za element</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.01" class="form-control" th:field="*{pricePerElement}" id="pricePerElement">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="storageSpace" class="col-sm-1 col-form-label">Miejsce przechowywania</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" th:field="*{storageSpace}" id="storageSpace">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="storageSpace" class="col-sm-1 col-form-label">Marża</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.01" class="form-control" th:field="*{profitMargin}" id="profitMargin">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="priceWithProfitMargin" class="col-sm-1 col-form-label">Cena z marżą</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.01" class="form-control" th:field="*{priceWithProfitMargin}" id="priceWithProfitMargin" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="priceWithProfitMargin" class="col-sm-1 col-form-label">Link do zdjęcia</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" th:field="*{photoUrl}" id="photoUrl">
+            </div>
+        </div>
         <input type="submit" class="btn btn-success" value="Dodaj część">
         <a class="btn btn-light" role="button" th:href="@{/parts/all}">Wróć</a>
     </form>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/parts/add-part.js" th:src="@{/js/parts/add-part.js}"></script>
 </body>
 </html>

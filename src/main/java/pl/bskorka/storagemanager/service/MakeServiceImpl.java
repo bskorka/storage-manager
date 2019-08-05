@@ -32,4 +32,9 @@ public class MakeServiceImpl implements MakeService {
         return dao.findAllByPartCategoryEquals(partCategory);
     }
 
+    @Override
+    public Make selectMakeByName(String makeName) {
+        return dao.findMakeByName(makeName);
+    }
+
 }

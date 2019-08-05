@@ -8,6 +8,8 @@ public interface PhoneModelService {
 
     List<PhoneModel> selectAllPhoneModels();
 
+    List<PhoneModel> selectPhoneModelsByMake(String makeName);
+
     PhoneModel save(PhoneModel phoneModel);
 
 }

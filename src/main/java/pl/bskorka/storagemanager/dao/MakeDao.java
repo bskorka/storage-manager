@@ -10,4 +10,5 @@ public interface MakeDao extends JpaRepository<Make, Integer> {
 
     List<Make> findAllByPartCategoryEquals(PartCategory partCategory);
 
+    Make findMakeByName(String make);
 }

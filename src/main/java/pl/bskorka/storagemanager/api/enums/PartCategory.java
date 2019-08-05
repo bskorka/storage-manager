@@ -17,4 +17,14 @@ public enum PartCategory {
 
         return comboTextByState;
     }
+
+    private String getLocaleText(PartCategory category) {
+        Map<PartCategory, String> localeByCategory = new TreeMap<>();
+        localeByCategory.put(PHONE, "Telefoniczna");
+        localeByCategory.put(COMPUTER, "Komputerowa");
+        localeByCategory.put(OTHER, "Inna");
+
+        return localeByCategory.get(category);
+    }
+
 }

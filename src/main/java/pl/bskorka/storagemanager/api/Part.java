@@ -37,6 +37,8 @@ public class Part {
 
     private Double priceWithProfitMargin;
 
+    private String photoUrl;
+
     @CreationTimestamp
     private Date createdAt;
 

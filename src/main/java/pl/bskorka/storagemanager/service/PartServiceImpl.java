@@ -24,6 +24,11 @@ public class PartServiceImpl implements PartService {
     }
 
     @Override
+    public Part selectPartById(Integer partId) {
+        return dao.findById(partId).orElse(null);
+    }
+
+    @Override
     public Part save(Part part) {
         return dao.save(part);
     }
