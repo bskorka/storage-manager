@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -17,11 +18,36 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <li class="ml-auto" sec:authorize="isAnonymous()">
+            <a class="btn btn-sm btn-primary" role="button" th:href="@{/register}">Rejestracja</a>
+            <a class="btn btn-sm btn-primary" role="button" th:href="@{/login}">Logowanie</a>
+        </li>
+        <li class="ml-auto" sec:authorize="isAuthenticated()">
+            <a class="btn btn-sm btn-primary" role="button" th:href="@{/logout}">Wyloguj się</a>
+        </li>
     </ol>
 </nav>
 <div class="container">
+    <div th:if="${param.registerSuccess}">
+        <div class="alert alert-success">
+            Udało Ci się pomyślnie zarejestrować - zaloguj się!
+        </div>
+    </div>
+    <div th:if="${param.loginSuccess}">
+        <div class="alert alert-success">
+            Udało Ci się pomyślnie zalogować!
+        </div>
+    </div>
+    <div th:if="${param.logoutSuccess}">
+        <div class="alert alert-success">
+            Udało Ci się pomyślnie wylogować!
+        </div>
+    </div>
     <div class="jumbotron">
-        <div class="row">
+        <div class="row" sec:authorize="isAnonymous()">
+            Zaloguj się lub zarejestruj.
+        </div>
+        <div class="row" sec:authorize="isAuthenticated()">
             <div class="col-md-3">
                 <p><h4>Telefony</h4></p>
                 <p><a class="btn btn-lg btn-primary" role="button" th:href="@{/parts/all}">Lista części</a></p>

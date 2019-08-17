@@ -14,7 +14,7 @@ import java.util.Date;
 public class Part {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer partId;
 
     private String name;

@@ -31,5 +31,4 @@ public class PhoneModelDataController {
         return service.selectPhoneModelsByMake(makeName);
     }
 
-
 }

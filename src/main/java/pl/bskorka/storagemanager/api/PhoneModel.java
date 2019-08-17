@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class PhoneModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer phoneModelId;
 
     @ManyToOne(cascade = CascadeType.ALL)

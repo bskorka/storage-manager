@@ -9,15 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.bskorka.storagemanager.api.Part;
-import pl.bskorka.storagemanager.api.enums.PartCategory;
 import pl.bskorka.storagemanager.api.enums.State;
 import pl.bskorka.storagemanager.api.enums.Type;
 import pl.bskorka.storagemanager.spec.MakeService;
 import pl.bskorka.storagemanager.spec.PartService;
 
 import javax.validation.Valid;
-
-import java.util.Objects;
 
 import static java.util.Objects.nonNull;
 import static pl.bskorka.storagemanager.api.enums.PartCategory.PHONE;
@@ -73,7 +70,7 @@ public class PartsViewController {
         return "parts/parts";
     }
 
-    public Model prepareAddPartModel(Model model, Part part) {
+    private void prepareAddPartModel(Model model, Part part) {
         model.addAttribute("stateComboValues", State.getComboTextForEnum());
         model.addAttribute("typeComboValues", Type.getComboTextForEnum());
         model.addAttribute("phoneMakes", makeService.selectMakesByPartCategory(PHONE));
@@ -82,7 +79,6 @@ public class PartsViewController {
             model.addAttribute("part", part);
         }
 
-        return model;
     }
 
 }
